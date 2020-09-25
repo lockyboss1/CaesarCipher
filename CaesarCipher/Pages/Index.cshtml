@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Caesar Cipher</h1>
+    <p>Learn more about the <a href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank">Caesar cipher</a>.</p>
+</div>
+
+<section class="main-text">
+    <ul>
+        <li class="text-left">
+            <a asp-page="/Encrypt">Encrypt</a>
+        </li>
+
+        <li class="text-right">
+            <a asp-page="/Decrypt">Decrypt</a>
+        </li>
+    </ul>
+</section>
