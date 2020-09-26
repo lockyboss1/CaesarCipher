@@ -15,12 +15,13 @@
 <br />
 
 <form onsubmit="return false" class="text-center">
-    <textarea id="encrypt-text" name="encrypt-text" placeholder="Enter encryption message here" required></textarea>
+
+    <textarea oninput="getText()" id="encrypt-text" name="encrypt-text" placeholder="Enter encryption message here" required></textarea>
     <br/><br/>
 
 
     <p>How many digits do you want to shift the text by?</p>
-    <select id="encrypt-number" required>
+    <select id="encrypt-number">
         <option value="" disabled selected>Select your option</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -49,7 +50,12 @@
         <option value="25">25</option>
         <option value="26">26</option>
     </select><br><br />
-    <input id="myButton" type="submit" value="Submit" />
+
+    <ul>
+        <li><input id="clear" type="submit" value="Clear" /></li>
+        <li><input id="myButton" type="submit" value="Submit" /></li>
+        <li><input id="upload" type="submit" value="Upload" /></li>
+    </ul>
 </form>
 <br />
 <br />

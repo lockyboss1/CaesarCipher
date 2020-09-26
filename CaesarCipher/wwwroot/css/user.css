@@ -14,3 +14,13 @@ textarea {
 #encrypt-text {
     background-color: #a8dadc;
 }
+
+ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+ul li a:hover {
+   opacity:0.5;
+}
+

@@ -1,14 +1,39 @@
-﻿let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+﻿
+let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 let encryptButton = document.getElementById("myButton");
-let encryptText = document.getElementById("encrypt-text").value;
+let encryptText;
 let secretMessage;
 let encryptedMessage = [];
-let encryptNumber = document.getElementById("encrypt-number").value;
 let encryptedText = document.getElementById("encrypted-text");
+let myNumber; 
+let encryptNumber;
+let selection = document.querySelector('select');
+let clear = document.getElementById('clear');
+let upload = document.getElementById('upload');
 
-encryptButton.addEventListener("click", function () {
+//gets the the message to be encrypted from the textarea   
+function getText() {
+    encryptText = document.getElementById("encrypt-text").value;
+}
+
+//gets the value from the the dropdown to be used as the encyrption number 
+selection.addEventListener('change', () => {
+    myNumber = selection.options[selection.selectedIndex].text;
+    encryptNumber = parseInt(myNumber);
+    console.log(encryptNumber);
+});
+
+//clears the textboxes and the decrypted message array when pressed
+clear.addEventListener('click', () => {
+    encryptedText.innerHTML = "";
+   // encryptText = "";
+    //encryptText.innerHTML = "";
+    encryptedMessage = [];
+});
+
+function caesarEncrypt() {
     var areEqual = encryptText.toLowerCase();
     secretMessage = areEqual.split('');
     console.log(secretMessage);
@@ -17,6 +42,7 @@ encryptButton.addEventListener("click", function () {
         let letterPosition = secretMessage[i];
         let alphabetPosition = alphabet.indexOf(letterPosition);
 
+        //if the position of the alphabet is less than 0, do nothing
         if (alphabetPosition < 0) {
             let letterPositionPlusThree = (alphabetPosition + 0);
             let newEncryptionMessage = alphabet[letterPositionPlusThree];
@@ -26,12 +52,15 @@ encryptButton.addEventListener("click", function () {
             encryptedText.innerHTML = output;
         }
 
+        //if it's not less than 0, perform the encrytion operation 
         else {
             let letterPositionPlusThree = (alphabetPosition + encryptNumber) % 26;
             console.log(encryptNumber);
             let newEncryptionMessage = alphabet[letterPositionPlusThree];
             encryptedMessage.push(newEncryptionMessage);
             let output = encryptedMessage.join("");
-        } 
+        }
     }
-})
+}
+     
+encryptButton.addEventListener('click', caesarEncrypt);
