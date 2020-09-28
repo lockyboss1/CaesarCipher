@@ -61,18 +61,18 @@ function caesarDecrypt() {
 
         //if the position of the alphabet is less than 0, do nothing
         if (alphabetPosition < 0) {
-            let letterPositionPlusThree = (alphabetPosition + 0);
-            let newEncryptionMessage = alphabet[letterPositionPlusThree];
+            let letterPositionMinusThree = (alphabetPosition + 0);
+            let newEncryptionMessage = alphabet[letterPositionMinusThree];
             encryptedMessage.push(newEncryptionMessage);
             let output = encryptedMessage.join(" ");
             encryptedText.innerHTML = output;
         }
 
-        //if it's not less than 0, perform the encrytion operation 
+        //if it's not less than 0, perform the decrytion operation 
         else {
-            let letterPositionPlusThree = ((alphabetPosition - encryptNumber) + 26) % 26;
+            let letterPositionMinusThree = ((alphabetPosition - encryptNumber) + 26) % 26;
             console.log(encryptNumber);
-            let newEncryptionMessage = alphabet[letterPositionPlusThree];
+            let newEncryptionMessage = alphabet[letterPositionMinusThree];
             encryptedMessage.push(newEncryptionMessage);
             let output = encryptedMessage.join("");
         }
