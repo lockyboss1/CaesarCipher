@@ -21,7 +21,7 @@
 
 
     <p>How many digits do you want to shift the text by?</p>
-    <select id="encrypt-number">
+    <select id="encrypt-number" required>
         <option value="" disabled selected>Select your option</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -51,11 +51,15 @@
         <option value="26">26</option>
     </select><br><br />
 
-    <ul>
+    <ul id="list1">
         <li><input id="clear" type="submit" value="Clear" /></li>
         <li><input id="myButton" type="submit" value="Submit" /></li>
-        <li><input id="upload" type="submit" value="Upload" /></li>
     </ul>
+
+    <ul id="list2">
+        <li><input type="file" id="upload" value="Upload" /></li>
+    </ul>
+
 </form>
 <br />
 <br />
